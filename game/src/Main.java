@@ -1,15 +1,32 @@
-//TIP 要<b>运行</b>代码，请按 <shortcut actionId="Run"/> 或
-// 点击装订区域中的 <icon src="AllIcons.Actions.Execute"/> 图标。
+import java.util.Scanner;
+
 public class Main {
+    // 2048游戏实现
+
     public static void main(String[] args) {
-            System.out.println("Hello World");
-            System.out.println("Hello World1");
-            System.out.println("Hello World2");
-            System.out.println("Hello World3");
-            System.out.println("Hello World4");
-            System.out.println("push.test");
-            System.out.println("pull test");
-            System.out.println("push.test1");
-            System.out.println("pull.test1");
+            Scanner sc = new Scanner(System.in);
+            board b = new board();
+            int input = 0;
+            int row = b.getRow();
+            int col = b.getCol();
+            int[][] board = new int[row][col];  // 创建游戏盘面
+            do{
+                b.menu();
+                input = sc.nextInt();
+                switch (input) {
+                    case 1:
+                        b.InitBoard(board);
+                        b.PrintBoard(board);
+                        key ck = new key();
+                        b.CreateNums(board);
+                        break;
+                    case 0:
+                        System.out.println("感谢您的游玩");
+                        break;
+                    default:
+                        System.out.println("输入错误,请重新选择");
+                        break;
+                }
+            }while(input!=0);
         }
     }
